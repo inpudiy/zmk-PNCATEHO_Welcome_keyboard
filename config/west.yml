@@ -9,7 +9,7 @@ manifest:
       remote: zmkfirmware
       revision: main
       import: app/west.yml
-    - name: PNCATEHO_Welcome-board
+    - name: zmk-PNCATEHO_Welcome-board
       remote: inpudiy
       revision: main
       import: config/west.yml
