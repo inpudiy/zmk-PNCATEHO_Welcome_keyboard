@@ -12,6 +12,8 @@
 #define COMBO_TIMEOUT 70
 #define STICKY_TIMEOUT 500
 
+#define COMBO_LAYER 0
+
 #define SN 0  // TOP
 #define SA 1  // TOP
 #define SE 2  // TOP
