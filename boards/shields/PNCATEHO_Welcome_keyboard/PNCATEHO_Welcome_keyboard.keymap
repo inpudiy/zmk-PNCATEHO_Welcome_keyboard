@@ -12,6 +12,17 @@
 #define COMBO_TIMEOUT 70
 #define STICKY_TIMEOUT 500
 
+#define SN 0  // TOP
+#define SA 1  // TOP
+#define SE 2  // TOP
+#define SO 3  // TOP
+#define SP 4  // BOTTOM
+#define SC 5  // BOTTOM
+#define ST 6  // BOTTOM
+#define SH 7  // BOTTOM
+#define SOT 8 // O-THUMB
+#define SIT 9 // I-THUMB
+
 &sk {
     release-after-ms = <STICKY_TIMEOUT>;
     quick-release;
@@ -20,6 +31,20 @@
 / {
   combos {
     compatible = "zmk,combos";
+
+    combo_l_space {
+        timeout-ms = <COMBO_TIMEOUT>;
+        bindings = <&kp SPACE>;
+        key-positions = <SIT>;
+        layers = <COMBO_LAYER>;
+    };
+
+    combo_l_bspc {
+        timeout-ms = <COMBO_TIMEOUT>;
+        bindings = <&kp BSPC>;
+        key-positions = <SOT>;
+        layers = <COMBO_LAYER>;
+    };
   };
 
   keymap {
