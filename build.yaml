@@ -19,5 +19,5 @@
 #
 ---
 include:
-  - board: PNCATEHO_Welcome
+  - board: sparkfun_pro_micro_rp2040
     shield: PNCATEHO_Welcome-keyboard
