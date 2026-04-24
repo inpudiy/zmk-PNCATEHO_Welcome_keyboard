@@ -1,7 +1,7 @@
 # Copyright (c) 2020 The ZMK Contributors
 # SPDX-License-Identifier: MIT
 
-if SHIELD_PNCATEHO_Welcome-keyboard
+if SHIELD_PNCATEHO_Welcome_keyboard
 
 config ZMK_KEYBOARD_NAME
     default "PNCATEHO Welcome"

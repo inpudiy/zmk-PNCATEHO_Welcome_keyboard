@@ -20,4 +20,4 @@
 ---
 include:
   - board: sparkfun_pro_micro_rp2040
-    shield: PNCATEHO_Welcome-keyboard
+    shield: PNCATEHO_Welcome_keyboard
