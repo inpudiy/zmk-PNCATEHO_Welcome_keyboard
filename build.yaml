@@ -19,5 +19,5 @@
 #
 ---
 include:
-  - board: PNCATEHO_Welcome
+  - board: PNCATEHO_Welcome//zmk
     shield: PNCATEHO_Welcome_keyboard
