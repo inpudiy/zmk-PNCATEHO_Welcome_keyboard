@@ -1,0 +1,5 @@
+name: zmk-PNCATEHO_Welcome-keyboard
+build:
+  settings:
+    board_root: .
+

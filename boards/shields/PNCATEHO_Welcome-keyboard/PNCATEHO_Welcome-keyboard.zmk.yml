@@ -1,0 +1,13 @@
+ile_format: "1"
+id: PNCATEHO_Welcome
+name: PNCATEHO Welcome
+type: shield
+url: https://github.com/aroum/PNCATEHO
+requires: [pro_micro]
+features:
+  - keys
+  - underglow
+  - studio
+outputs:
+  - usb
+
