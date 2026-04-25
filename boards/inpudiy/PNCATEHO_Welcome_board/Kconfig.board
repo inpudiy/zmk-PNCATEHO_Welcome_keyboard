@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 config BOARD_PNCATEHO_Welcome_board
+    bool "PNCATEHO Welcome"
     select ZMK_BOARD_COMPAT
     imply RETAINED_MEM
     imply RETENTION
