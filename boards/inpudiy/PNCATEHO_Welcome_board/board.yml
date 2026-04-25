@@ -3,4 +3,4 @@ board:
   vendor: inpudiy
   variants:
     - name: zmk
-      qualifiers: rp2040
+      qualifier: rp2040
