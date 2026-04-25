@@ -4,6 +4,8 @@
  * SPDX-License-Identifier: MIT
  */
 
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
 / {
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-direct";
