@@ -1,0 +1,6 @@
+board:
+  extend: PNCATEHO_Welcome_board
+  vendor: inpudiy
+  variants:
+    - name: zmk
+      qualifiers: rp2040
