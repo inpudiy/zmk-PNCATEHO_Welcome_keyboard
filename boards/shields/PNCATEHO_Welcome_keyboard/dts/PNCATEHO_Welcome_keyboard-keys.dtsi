@@ -1,0 +1,17 @@
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#define SN 0  // TOP
+#define SA 1  // TOP
+#define SE 2  // TOP
+#define SO 3  // TOP
+#define SP 4  // BOTTOM
+#define SC 5  // BOTTOM
+#define ST 6  // BOTTOM
+#define SH 7  // BOTTOM
+#define SOT 8 // O-THUMB
+#define SIT 9 // I-THUMB
+

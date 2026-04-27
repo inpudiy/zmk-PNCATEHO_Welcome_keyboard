@@ -1,0 +1,169 @@
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/rgb.h>
+#include "PNCATEHO_Welcome_keyboard-keys.dtsi"
+
+// CONFIG
+
+#define COMBO_TIMEOUT 70
+#define COMBO_LAYER 0
+#define SELECTION_LAYER 1
+#define NAVIGATION_LAYER 2
+#define BLUETOOTH_LAYER 3
+#define KBCTRL_LAYER 4
+#define RGB_LAYER 5
+#define LOL_MAIN_LAYER 6
+#define LOL_NUMBERS_LAYER 7
+#define LOL_ADDITIONAL_LAYER 8
+#define LOL_FN_LAYER 9
+#define TUX_LAYER 10
+#define STICKY_TIMEOUT 500
+
+&sk {
+    release-after-ms = <STICKY_TIMEOUT>;
+    quick-release;
+};
+
+/ {
+    combos {
+        compatible = "zmk,combos";
+
+        combo_l_space {
+            timeout-ms = <COMBO_TIMEOUT>;
+            bindings = <&kp SPACE>;
+            key-positions = <SIT>;
+            layers = <COMBO_LAYER>;
+        };
+
+        combo_l_bspc {
+            timeout-ms = <COMBO_TIMEOUT>;
+            bindings = <&kp BSPC>;
+            key-positions = <SOT>;
+            layers = <COMBO_LAYER>;
+        };
+
+        #include "PNCATEHO_Welcome_keyboard-chords.dtsi"
+    };
+
+    behaviors {
+        lol_add_ctrl_fn: lol_add_ctrl_fn {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings =
+                <&mo LOL_ADDITIONAL_LAYER>,
+                <&kp LCTRL>,
+                <&mo LOL_FN_LAYER>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        combo_layer {
+            display-name = "combo";
+            bindings = <
+&none  &none  &none  &none
+&none  &none  &none  &none
+                     &none  &none
+            >;
+        };
+
+        selection_layer {
+            display-name = "selection";
+            bindings = <
+&to NAVIGATION_LAYER  &to LOL_MAIN_LAYER  &none  &to BLUETOOTH_LAYER
+&to RGB_LAYER         &to TUX_LAYER       &none  &to KBCTRL_LAYER
+                                                 &to COMBO_LAYER      &none
+            >;
+        };
+
+        navigation_layer {
+            display-name = "navigation";
+            bindings = <
+&kp PG_UP  &kp END   &kp UP    &kp HOME
+&kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT
+                               &to COMBO_LAYER  &none
+            >;
+        };
+
+        bluetooth_layer {
+            display-name = "bluetooth";
+            bindings = <
+&none  &none  &none  &none
+&none  &none  &none  &none
+                     &none  &none
+            >;
+        };
+
+        kbctrl_layer {
+            display-name = "kbctrl";
+            bindings = <
+&bootloader  &none  &none  &studio_unlock
+&sys_reset   &none  &none  &none
+                           &to COMBO_LAYER  &none
+            >;
+        };
+
+        rgb_layer {
+            display-name = "rgb";
+            bindings = <
+&none  &rgb_ug RGB_BRI  &rgb_ug RGB_SPI  &rgb_ug RGB_EFF
+&none  &rgb_ug RGB_BRD  &rgb_ug RGB_SPD  &rgb_ug RGB_EFR
+                                         &to COMBO_LAYER  &none
+            >;
+        };
+
+        lol_main_layer {
+            display-name = "lol-main";
+            bindings = <
+&kp Q  &kp W  &kp E  &kp R
+&kp A  &kp S  &kp D  &kp F
+                     &mo LOL_NUMBERS_LAYER  &lol_add_ctrl_fn
+            >;
+        };
+
+        lol_numbers_layer {
+            display-name = "lol-numbers";
+            bindings = <
+&kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4
+&kp NUMBER_5  &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8
+                                          &none         &kp V
+            >;
+        };
+
+        lol_additional_layer {
+            display-name = "lol-additional";
+            bindings = <
+&kp ESC  &none  &none  &to COMBO_LAYER
+&kp TAB  &none  &none  &none
+                       &none            &none
+            >;
+        };
+
+        lol_fn_layer {
+            display-name = "lol-fn";
+            bindings = <
+&kp F1  &kp F2  &kp F3  &kp F4
+&kp F5  &kp F6  &kp F7  &kp F8
+                        &none   &none
+            >;
+        };
+
+        super_tux {
+            display-name = "super-tux";
+            bindings = <
+&kp HOME   &kp PAGE_DOWN  &kp END  &kp RIGHT
+&kp LCTRL  &kp DELETE     &kp UP   &kp DOWN
+                                   &kp LEFT   &kp SPACE
+            >;
+        };
+    };
+};
+
